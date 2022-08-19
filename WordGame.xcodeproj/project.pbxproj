@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		E243FF0928AFD843008167D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243FF0828AFD843008167D7 /* AppDelegate.swift */; };
 		E243FF0B28AFD843008167D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243FF0A28AFD843008167D7 /* SceneDelegate.swift */; };
-		E243FF0D28AFD843008167D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243FF0C28AFD843008167D7 /* ViewController.swift */; };
-		E243FF1028AFD843008167D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E243FF0E28AFD843008167D7 /* Main.storyboard */; };
 		E243FF1228AFD845008167D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E243FF1128AFD845008167D7 /* Assets.xcassets */; };
 		E243FF1528AFD845008167D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E243FF1328AFD845008167D7 /* LaunchScreen.storyboard */; };
+		E243FF1D28AFD8B1008167D7 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = E243FF1C28AFD8B1008167D7 /* words.json */; };
+		E243FF2528AFD981008167D7 /* WordPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243FF2428AFD981008167D7 /* WordPair.swift */; };
+		E243FF2828AFDADF008167D7 /* WordGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243FF2628AFDADF008167D7 /* WordGameViewController.swift */; };
+		E243FF2928AFDADF008167D7 /* WordGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E243FF2728AFDADF008167D7 /* WordGameViewController.xib */; };
+		E244AE2A28AFE02A00502DBB /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE2928AFE02A00502DBB /* JSONLoader.swift */; };
+		E244AE2D28B00B1500502DBB /* WordGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE2C28B00B1500502DBB /* WordGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E243FF0528AFD843008167D7 /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E243FF0828AFD843008167D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E243FF0A28AFD843008167D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E243FF0C28AFD843008167D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E243FF0F28AFD843008167D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E243FF1128AFD845008167D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E243FF1428AFD845008167D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E243FF1628AFD845008167D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E243FF1C28AFD8B1008167D7 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		E243FF2428AFD981008167D7 /* WordPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPair.swift; sourceTree = "<group>"; };
+		E243FF2628AFDADF008167D7 /* WordGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameViewController.swift; sourceTree = "<group>"; };
+		E243FF2728AFDADF008167D7 /* WordGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordGameViewController.xib; sourceTree = "<group>"; };
+		E244AE2928AFE02A00502DBB /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		E244AE2C28B00B1500502DBB /* WordGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,91 @@
 		E243FF0728AFD843008167D7 /* WordGame */ = {
 			isa = PBXGroup;
 			children = (
-				E243FF0828AFD843008167D7 /* AppDelegate.swift */,
-				E243FF0A28AFD843008167D7 /* SceneDelegate.swift */,
-				E243FF0C28AFD843008167D7 /* ViewController.swift */,
-				E243FF0E28AFD843008167D7 /* Main.storyboard */,
-				E243FF1128AFD845008167D7 /* Assets.xcassets */,
-				E243FF1328AFD845008167D7 /* LaunchScreen.storyboard */,
-				E243FF1628AFD845008167D7 /* Info.plist */,
+				E244AE2728AFE01A00502DBB /* Library */,
+				E243FF2228AFD8EA008167D7 /* Storyboards */,
+				E243FF1F28AFD8BD008167D7 /* Supporting Files */,
+				E243FF1E28AFD8B8008167D7 /* Modules */,
 			);
 			path = WordGame;
+			sourceTree = "<group>";
+		};
+		E243FF1E28AFD8B8008167D7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E243FF2028AFD8CB008167D7 /* Game */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E243FF1F28AFD8BD008167D7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E243FF1628AFD845008167D7 /* Info.plist */,
+				E243FF1128AFD845008167D7 /* Assets.xcassets */,
+				E243FF0828AFD843008167D7 /* AppDelegate.swift */,
+				E243FF0A28AFD843008167D7 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E243FF2028AFD8CB008167D7 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				E244AE2B28B00B0700502DBB /* ViewModel */,
+				E243FF2328AFD975008167D7 /* Model */,
+				E243FF2128AFD8D8008167D7 /* ViewController */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		E243FF2128AFD8D8008167D7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E243FF2628AFDADF008167D7 /* WordGameViewController.swift */,
+				E243FF2728AFDADF008167D7 /* WordGameViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E243FF2228AFD8EA008167D7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E243FF1328AFD845008167D7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E243FF2328AFD975008167D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E243FF1C28AFD8B1008167D7 /* words.json */,
+				E243FF2428AFD981008167D7 /* WordPair.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E244AE2728AFE01A00502DBB /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E244AE2828AFE02200502DBB /* JSONLoader */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		E244AE2828AFE02200502DBB /* JSONLoader */ = {
+			isa = PBXGroup;
+			children = (
+				E244AE2928AFE02A00502DBB /* JSONLoader.swift */,
+			);
+			path = JSONLoader;
+			sourceTree = "<group>";
+		};
+		E244AE2B28B00B0700502DBB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E244AE2C28B00B1500502DBB /* WordGameViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E243FF1528AFD845008167D7 /* LaunchScreen.storyboard in Resources */,
+				E243FF1D28AFD8B1008167D7 /* words.json in Resources */,
+				E243FF2928AFDADF008167D7 /* WordGameViewController.xib in Resources */,
 				E243FF1228AFD845008167D7 /* Assets.xcassets in Resources */,
-				E243FF1028AFD843008167D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E243FF0D28AFD843008167D7 /* ViewController.swift in Sources */,
+				E243FF2828AFDADF008167D7 /* WordGameViewController.swift in Sources */,
+				E244AE2A28AFE02A00502DBB /* JSONLoader.swift in Sources */,
+				E243FF2528AFD981008167D7 /* WordPair.swift in Sources */,
 				E243FF0928AFD843008167D7 /* AppDelegate.swift in Sources */,
+				E244AE2D28B00B1500502DBB /* WordGameViewModel.swift in Sources */,
 				E243FF0B28AFD843008167D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +235,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E243FF0E28AFD843008167D7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E243FF0F28AFD843008167D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E243FF1328AFD845008167D7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,10 +369,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54HDDP27D9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WordGame/Info.plist;
+				INFOPLIST_FILE = "WordGame/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,10 +396,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54HDDP27D9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WordGame/Info.plist;
+				INFOPLIST_FILE = "WordGame/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
