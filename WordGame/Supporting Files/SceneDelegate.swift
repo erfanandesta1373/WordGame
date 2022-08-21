@@ -9,7 +9,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
+    var navigator: WordGameNavigator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,10 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(windowScene: windowScene)
-        let wordGameController = WordGameViewController()
-        window?.rootViewController = wordGameController
-        window?.makeKeyAndVisible()
+        navigator = WordGameNavigator(window: UIWindow(windowScene: windowScene))
+        navigator?.start()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

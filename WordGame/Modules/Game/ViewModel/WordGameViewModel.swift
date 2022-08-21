@@ -15,16 +15,20 @@ class WordGameViewModel {
     private var correctWords = Set<WordPair>()
     private var cancellables = Set<AnyCancellable>()
     private weak var timer: Timer?
+    private let navigator: WordGameNavigator
+    
+    let timerInterval: TimeInterval = 5
     let currentPair = CurrentValueSubject<WordPair?, Never>(nil)
     let guess = PassthroughSubject<Bool, Never>()
     let points = CurrentValueSubject<(wrong: Int, correct: Int), Never>((0, 0))
     
     //MARK: - Initializer -
-    init(jsonLoader: JSONLoader = .init()) {
+    init(jsonLoader: JSONLoader = .init(), navigator: WordGameNavigator) {
         self.jsonLoader = jsonLoader
+        self.navigator = navigator
+        
         correctWords = loadWords()
         makeGame()
-        
         
         guess
             .sink { isCorrect in
@@ -42,7 +46,7 @@ class WordGameViewModel {
             .sink { wrong, correct in
                 let sum = wrong + correct
                 if wrong == 3 || sum == 15 {
-                    exit(0)
+                    self.showExitAlert(score: correct)
                 }
             }.store(in: &cancellables)
     }
@@ -53,11 +57,10 @@ class WordGameViewModel {
     }
     private func makeTimer() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { _ in
             self.makeGame()
             self.points.send((wrong: self.points.value.wrong + 1, correct: self.points.value.correct))
         }
-        timer?.tolerance = 0.2
     }
     private func makeGame() {
         let random = Int.random(in: 1...4)
@@ -73,5 +76,14 @@ class WordGameViewModel {
             guard let randomPair = words.randomElement() else { return nil }
             return WordPair(text: pair.text, translation: randomPair.translation, isCorrectTranslation: false)
         }
+    }
+    private func showExitAlert(score: Int) {
+        timer?.invalidate()
+        navigator.navigate(to: .finalAlert(score: score, resetHandler: { _ in
+            self.points.send((wrong: 0, correct: 0))
+            self.makeGame()
+        }, exitHandler: { _ in
+            exit(0)
+        }))
     }
 }

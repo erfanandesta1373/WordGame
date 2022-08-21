@@ -31,7 +31,7 @@ class WordGameViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     //MARK: - Initializers -
-    init(viewModel: WordGameViewModel = .init()) {
+    init(viewModel: WordGameViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
@@ -59,7 +59,20 @@ class WordGameViewController: UIViewController {
             .sink { pair in
                 self.textLabel.text = pair?.text
                 self.translationLabel.text = pair?.translation
+                self.animateTranslation(timeInterval: self.viewModel.timerInterval)
             }.store(in: &cancellables)
     }
     
+    //MARK: - Methods -
+    
+    private func animateTranslation(timeInterval: TimeInterval) {
+        view.layer.removeAllAnimations()
+        let screenBounds = UIScreen.main.bounds
+        let height: CGFloat = 50
+        let width = screenBounds.width
+        translationLabel.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        UIView.animate(withDuration: timeInterval, delay: 0, options: .curveEaseInOut) {
+            self.translationLabel.frame = CGRect(x: 0, y: screenBounds.height, width: width, height: height)
+        }
+    }
 }

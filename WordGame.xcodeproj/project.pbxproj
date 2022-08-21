@@ -17,6 +17,9 @@
 		E243FF2928AFDADF008167D7 /* WordGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E243FF2728AFDADF008167D7 /* WordGameViewController.xib */; };
 		E244AE2A28AFE02A00502DBB /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE2928AFE02A00502DBB /* JSONLoader.swift */; };
 		E244AE2D28B00B1500502DBB /* WordGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE2C28B00B1500502DBB /* WordGameViewModel.swift */; };
+		E244AE3028B252A300502DBB /* WordGameNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE2F28B252A300502DBB /* WordGameNavigator.swift */; };
+		E244AE3428B2536300502DBB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE3328B2536300502DBB /* UIViewController+Extension.swift */; };
+		E244AE3628B2563B00502DBB /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E244AE3528B2563B00502DBB /* Navigator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		E243FF2728AFDADF008167D7 /* WordGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordGameViewController.xib; sourceTree = "<group>"; };
 		E244AE2928AFE02A00502DBB /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		E244AE2C28B00B1500502DBB /* WordGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameViewModel.swift; sourceTree = "<group>"; };
+		E244AE2F28B252A300502DBB /* WordGameNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameNavigator.swift; sourceTree = "<group>"; };
+		E244AE3328B2536300502DBB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		E244AE3528B2563B00502DBB /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		E243FF2028AFD8CB008167D7 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				E244AE2E28B2529400502DBB /* Coordinator */,
 				E244AE2B28B00B0700502DBB /* ViewModel */,
 				E243FF2328AFD975008167D7 /* Model */,
 				E243FF2128AFD8D8008167D7 /* ViewController */,
@@ -131,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				E244AE2828AFE02200502DBB /* JSONLoader */,
+				E244AE3328B2536300502DBB /* UIViewController+Extension.swift */,
+				E244AE3528B2563B00502DBB /* Navigator.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -149,6 +158,14 @@
 				E244AE2C28B00B1500502DBB /* WordGameViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E244AE2E28B2529400502DBB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E244AE2F28B252A300502DBB /* WordGameNavigator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,8 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E244AE3428B2536300502DBB /* UIViewController+Extension.swift in Sources */,
 				E243FF2828AFDADF008167D7 /* WordGameViewController.swift in Sources */,
+				E244AE3628B2563B00502DBB /* Navigator.swift in Sources */,
 				E244AE2A28AFE02A00502DBB /* JSONLoader.swift in Sources */,
+				E244AE3028B252A300502DBB /* WordGameNavigator.swift in Sources */,
 				E243FF2528AFD981008167D7 /* WordPair.swift in Sources */,
 				E243FF0928AFD843008167D7 /* AppDelegate.swift in Sources */,
 				E244AE2D28B00B1500502DBB /* WordGameViewModel.swift in Sources */,
