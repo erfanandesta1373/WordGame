@@ -12,7 +12,7 @@ class WordGameViewModel {
     
     //MARK: - Properties -
     private let jsonLoader: JSONLoader
-    private var correctWords = Set<WordPair>()
+    var correctWords = Set<WordPair>()
     private var cancellables = Set<AnyCancellable>()
     private weak var timer: Timer?
     private let navigator: WordGameNavigator
@@ -55,19 +55,19 @@ class WordGameViewModel {
     private func loadWords() -> Set<WordPair> {
         return jsonLoader.load(file: "words", for: Self.self, model: Set<WordPair>.self) ?? []
     }
-    private func makeTimer() {
+    func makeTimer() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { _ in
             self.makeGame()
             self.points.send((wrong: self.points.value.wrong + 1, correct: self.points.value.correct))
         }
     }
-    private func makeGame() {
+    func makeGame() {
         let random = Int.random(in: 1...4)
         currentPair.send(makePair(isCorrect: random == 1))
         makeTimer()
     }
-    private func makePair(isCorrect: Bool) -> WordPair? {
+    func makePair(isCorrect: Bool) -> WordPair? {
         guard let pair = correctWords.randomElement() else { return nil }
         if isCorrect {
             return pair
